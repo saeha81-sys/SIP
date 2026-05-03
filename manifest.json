@@ -1,6 +1,6 @@
 {
-  "name": "보디빌딩 실기 SIP",
-  "short_name": "SIP",
+  "name": "SIP Flip",
+  "short_name": "SIP Flip",
   "description": "2026 체육지도자 실기 플립카드",
   "start_url": "/SIP/",
   "scope": "/SIP/",
