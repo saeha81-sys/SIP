@@ -1,0 +1,25 @@
+{
+  "name": "보디빌딩 실기 SIP",
+  "short_name": "SIP",
+  "description": "2026 체육지도자 실기 플립카드",
+  "start_url": "/SIP/",
+  "scope": "/SIP/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#5c55e8",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
