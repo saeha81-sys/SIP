@@ -811,6 +811,59 @@ function buildTeacherView(){
 let teacherChecks = {};
 try{ teacherChecks = JSON.parse(localStorage.getItem('bb_teacher_checks')||'{}'); }catch(e){}
 
+function renderTeacherTab(cardId){
+  if(!curCard) return;
+  var myAns = userMyAnswers[cardId] || '';
+  var cont = document.getElementById('teacher-my-ans-display');
+  if(cont){
+    cont.innerHTML = '';
+    if(myAns){
+      var lines = myAns.split('\n').filter(function(l){ return l.trim(); });
+      lines.forEach(function(line,i){
+        var row=document.createElement('div');
+        row.style.cssText='display:flex;align-items:center;gap:10px;padding:.45rem 0;border-bottom:.5px solid var(--br)';
+        var chk=document.createElement('input');
+        chk.type='checkbox';
+        chk.checked=getTeacherCheck(cardId,i);
+        chk.style.cssText='width:20px;height:20px;accent-color:#25b87a;flex-shrink:0;cursor:pointer';
+        (function(idx){chk.addEventListener('change',function(){saveTeacherCheck(cardId,idx,chk.checked);});})(i);
+        var lbl=document.createElement('span');
+        lbl.style.cssText='font-size:13px;line-height:1.6;color:var(--tx);flex:1';
+        lbl.textContent=line;
+        row.appendChild(chk);row.appendChild(lbl);cont.appendChild(row);
+      });
+    } else {
+      cont.innerHTML='<div style="color:var(--tx3);font-style:italic;font-size:13px">(아직 작성된 답안 없음)</div>';
+    }
+  }
+  var ta=document.getElementById('teacher-ta');
+  if(ta) ta.value=userTeacherFeedback[cardId]||'';
+}
+function renderTeacherFeedback(cardId){renderTeacherTab(cardId);}
+async function refreshTeacherFeedback(cardId){
+  try{
+    var r=await fetch('https://gnmwotifodlujzrvfeus.supabase.co/rest/v1/answers?card_id=eq.'+cardId+'&select=teacher_feedback',{
+      headers:{'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdubXdvdGlmb2RsdWp6cnZmZXVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3OTMyODIsImV4cCI6MjA5MzM2OTI4Mn0.kI9hoM565ek-SPok7SC1_e3VIIr2yD4HVgWRgaqpzkQ','Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdubXdvdGlmb2RsdWp6cnZmZXVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3OTMyODIsImV4cCI6MjA5MzM2OTI4Mn0.kI9hoM565ek-SPok7SC1_e3VIIr2yD4HVgWRgaqpzkQ'}
+    });
+    if(!r.ok)return;
+    var rows=await r.json();
+    if(rows[0]&&rows[0].teacher_feedback){
+      userTeacherFeedback[cardId]=rows[0].teacher_feedback;
+      var ta=document.getElementById('teacher-ta');
+      if(ta)ta.value=rows[0].teacher_feedback;
+    }
+  }catch(e){}
+}
+async function saveTeacherFeedback(){
+  var ta=document.getElementById('teacher-ta');
+  if(!ta||!curCard)return;
+  var val=ta.value.trim();
+  if(val)userTeacherFeedback[curCard.id]=val;
+  else delete userTeacherFeedback[curCard.id];
+  await saveToDb(curCard.id,curCard.name,'teacher_feedback',val);
+  var fl=document.getElementById('teacher-saved-flash');
+  if(fl){fl.classList.add('show');setTimeout(function(){fl.classList.remove('show');},2000);}
+}
 function getTeacherCheck(cardId, idx){
   return teacherChecks[cardId]?.[idx] || false;
 }
