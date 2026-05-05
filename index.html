@@ -170,6 +170,18 @@ html,body{min-height:100vh;background:var(--bg);color:var(--tx);font-family:-app
 }
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px}
+
+/* ─── FLOATING HOME BTN ─── */
+.float-home{
+  position:fixed;bottom:1.25rem;left:50%;transform:translateX(-50%);
+  background:var(--ac);color:#fff;border:none;border-radius:30px;
+  padding:.6rem 1.5rem;font-size:13px;font-weight:700;
+  box-shadow:0 4px 16px rgba(92,85,232,.35);cursor:pointer;
+  z-index:50;display:flex;align-items:center;gap:6px;
+  transition:opacity .15s;
+}
+.float-home:active{opacity:.8}
+#home .float-home{display:none}
 </style>
 
 <link rel="manifest" href="manifest.json">
@@ -190,8 +202,8 @@ html,body{min-height:100vh;background:var(--bg);color:var(--tx);font-family:-app
   </div>
   <div class="mode-grid">
     <div class="mode-card" onclick="goMode('learn')"><div class="mode-icon">📚</div><div class="mode-name">실기평가</div><div class="mode-desc">이미지+답안 카드 학습</div></div>
-    <div class="mode-card dim" onclick="goMode('pose')"><div class="mode-icon">🏆</div><div class="mode-name">실전기술</div><div class="mode-desc">준비 중</div></div>
-    <div class="mode-card dim" onclick="goMode('oral')"><div class="mode-icon">🎤</div><div class="mode-name">구술검정</div><div class="mode-desc">준비 중</div></div>
+    <div class="mode-card" onclick="goMode('pose')"><div class="mode-icon">🏆</div><div class="mode-name">실전기술</div><div class="mode-desc">준비 중</div></div>
+    <div class="mode-card" onclick="goMode('oral')"><div class="mode-icon">🎤</div><div class="mode-name">구술검정</div><div class="mode-desc">준비 중</div></div>
     <div class="mode-card" onclick="goMode('quiz')"><div class="mode-icon">⏱️</div><div class="mode-name">시험 모드</div><div class="mode-desc">범위 설정 후 랜덤 출제</div></div>
   </div>
   <div class="stats-row">
@@ -203,6 +215,7 @@ html,body{min-height:100vh;background:var(--bg);color:var(--tx);font-family:-app
 
 <!-- CATEGORY SELECT -->
 <div id="cat-sel" class="screen">
+  <button class="float-home" onclick="goHome()">🏠 홈</button>
   <div class="nav-bar">
     <button class="nav-back" onclick="goHome()">←</button>
     <div class="nav-title" id="cat-ttl">범위 선택</div>
@@ -216,6 +229,7 @@ html,body{min-height:100vh;background:var(--bg);color:var(--tx);font-family:-app
 
 <!-- LEARN MODE -->
 <div id="learn-mode" class="screen">
+  <button class="float-home" onclick="goHome()">🏠 홈</button>
   <div class="nav-bar">
     <button class="nav-back" onclick="goHome()">←</button>
     <div class="nav-title" id="learn-ttl">학습</div>
@@ -247,7 +261,7 @@ html,body{min-height:100vh;background:var(--bg);color:var(--tx);font-family:-app
     <div class="ans-tab-bar">
       <button class="ans-tab active" id="atab-my" onclick="switchAnsTab('my',event)">✍️ 내 답안</button>
       <button class="ans-tab" id="atab-off" onclick="switchAnsTab('off',event)">📋 모범답안</button>
-      <button class="ans-tab" id="atab-teacher" onclick="switchAnsTab('teacher',event)">👩‍🏫 선생님</button>
+      <button class="ans-tab" id="atab-teacher" onclick="switchAnsTab('teacher',event)" style="display:none">👩‍🏫 선생님</button>
     </div>
 
     <!-- 내 답안 패널 -->
@@ -278,18 +292,21 @@ html,body{min-height:100vh;background:var(--bg);color:var(--tx);font-family:-app
       </div>
     </div>
 
-    <!-- 선생님 피드백 패널 -->
+    <!-- 선생님 탭 패널 -->
     <div class="ans-panel" id="apanel-teacher">
-      <div id="teacher-panel-content" style="padding:.75rem 1rem">
-        <div style="font-size:12px;color:var(--tx3);margin-bottom:.5rem;font-weight:600;letter-spacing:1px;text-transform:uppercase">👩‍🏫 선생님 피드백</div>
-        <div id="teacher-feedback-display" style="font-size:14px;line-height:1.8;color:var(--tx);white-space:pre-wrap;min-height:60px"></div>
-        <!-- 선생님 편집 영역 (teacher mode일 때만 표시) -->
-        <div id="teacher-edit-wrap" style="display:none;margin-top:.75rem;display:flex;flex-direction:column;gap:.5rem">
-          <textarea class="my-ta" id="teacher-ta" placeholder="학생 답안에 대한 피드백을 작성하세요...&#10;&#10;예) 호흡 설명이 빠졌어요. 내릴 때 들이마시고 올릴 때 내쉬는 부분을 추가하세요!"></textarea>
-          <div class="edit-actions">
-            <button class="save-btn-sm" onclick="saveTeacherFeedback()" style="background:#e8a020">피드백 저장</button>
-            <span class="saved-flash" id="teacher-saved-flash">저장됐어요 ✓</span>
-          </div>
+      <div style="padding:.75rem 1rem;overflow-y:auto;max-height:50vh">
+        <!-- 내 답안 전체 표시 -->
+        <div style="font-size:10px;font-weight:700;color:var(--ac4);letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem">✍️ 내 답안</div>
+        <div id="teacher-my-ans-display" style="font-size:13px;line-height:1.8;color:var(--tx);white-space:pre-wrap;background:var(--sf);border-radius:var(--rs);padding:.65rem .75rem;margin-bottom:.75rem;min-height:40px"></div>
+        <!-- 평가항목별 체크박스 -->
+        <div style="font-size:10px;font-weight:700;color:var(--ac);letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem">📋 평가항목 체크</div>
+        <div id="teacher-check-list" style="display:flex;flex-direction:column;gap:6px;margin-bottom:.75rem"></div>
+        <!-- 피드백 입력 -->
+        <div style="font-size:10px;font-weight:700;color:#e8a020;letter-spacing:1px;text-transform:uppercase;margin-bottom:.4rem">💬 피드백</div>
+        <textarea id="teacher-ta" class="my-ta" placeholder="학생에게 피드백을 작성하세요..." style="min-height:70px;border-color:rgba(232,160,32,.3)"></textarea>
+        <div class="edit-actions" style="margin-top:.4rem">
+          <button class="save-btn-sm" onclick="saveTeacherFeedback()" style="background:#e8a020">피드백 저장</button>
+          <span class="saved-flash" id="teacher-saved-flash">저장됐어요 ✓</span>
         </div>
       </div>
     </div>
@@ -310,6 +327,7 @@ html,body{min-height:100vh;background:var(--bg);color:var(--tx);font-family:-app
 
 <!-- QUIZ MODE -->
 <div id="quiz-mode" class="screen">
+  <button class="float-home" onclick="goHome()">🏠 홈</button>
   <div class="nav-bar">
     <button class="nav-back" onclick="goHome()">←</button>
     <div class="nav-title">시험 모드</div>
@@ -347,6 +365,7 @@ html,body{min-height:100vh;background:var(--bg);color:var(--tx);font-family:-app
 
 <!-- COMING SOON -->
 <div id="coming-soon" class="screen">
+  <button class="float-home" onclick="goHome()">🏠 홈</button>
   <div class="nav-bar">
     <button class="nav-back" onclick="goHome()">←</button>
     <div class="nav-title" id="cs-title">준비 중</div>
@@ -360,6 +379,7 @@ html,body{min-height:100vh;background:var(--bg);color:var(--tx);font-family:-app
 
 <!-- SUMMARY -->
 <div id="summary" class="screen">
+  <button class="float-home" onclick="goHome()">🏠 홈</button>
   <div class="sum-box">
     <div class="sum-em" id="sum-em">🎉</div>
     <div class="sum-ttl" id="sum-ttl">완료!</div>
@@ -438,7 +458,8 @@ const CATS={
       {tag:"hand",label:"손",text:"양손을 모아 잡은 덤벨을 들어 올려 가슴 위쪽에 위치"},
       {tag:"key",label:"핵심",text:"덤벨을 머리 뒤로 큰 원을 그리듯이 내림"},
       {tag:"key",label:"핵심",text:"팔꿈치 관절을 충분히 연 상태에서 수직이 되도록 팔을 올림 / 하위구간 엉덩이 들리지 않도록"},
-      {tag:"breath",label:"호흡",text:"덤벨이 가슴 앞쪽으로 오면서 내쉼"}]}
+      {tag:"breath",label:"호흡",text:"덤벨이 가슴 앞쪽으로 오면서 내쉼"}]},
+    {id:"c007",name:"딥스",criteria:[{tag:"hand",label:"손",text:"뉴트럴 그립으로 잡고 명치를 들고 엉덩이를 살짝 뒤로 빼고 허리가 곧게 펴져 있는가"},{tag:"key",label:"핵심",text:"팔꿈치를 굽히면서 내려갔다가 올라올 때 몸통이 흔들리지 않고 수직으로 올라옴"},{tag:"key",label:"핵심",text:"동작 시 등과 허리가 곧게 잘 펴져 있음"},{tag:"breath",label:"호흡",text:"내려갈 때 들이마시고 올라올 때 내쉼"}]}
   ]},
   "기초/상체/팔(이두)":{color:"#e8554a",cards:[
     {id:"t001",name:"스탠딩 바벨 컬",criteria:[{tag:"foot",label:"발",text:"어깨너비로 벌리고 서서 스탠다드 언더핸드 그립"},{tag:"key",label:"핵심",text:"팔꿈치가 어깨 뒤로 빠지지 않게 고정"},{tag:"key",label:"핵심",text:"내릴 때 어깨가 움직이지 않고 팔꿈치가 펴짐"},{tag:"breath",label:"호흡",text:"내릴 때 들이마시고 올릴 때 내쉼"}]},
@@ -862,10 +883,8 @@ let isTeacherMode = false;
 function checkTeacherMode(){
   const params = new URLSearchParams(window.location.search);
   isTeacherMode = params.get('mode') === 'teacher';
-  if(isTeacherMode){
-    buildTeacherView();
-    showScreen('teacher-view');
-  }
+  // 선생님 모드: 별도 화면 없이 일반 앱과 동일하게 사용
+  // 학습 모드의 카드 뒷면에 [선생님] 탭이 추가됨
 }
 
 // ═══════════════ STATE ═══════════════
@@ -1077,6 +1096,9 @@ function openAns(){
   document.getElementById('edit-btn').style.display='';
   const oeb2=document.getElementById('off-edit-btn');
   if(oeb2)oeb2.style.display='none';
+  // 선생님 탭 표시/숨김
+  const teacherTab=document.getElementById('atab-teacher');
+  if(teacherTab) teacherTab.style.display=isTeacherMode?'':'none';
 }
 
 function closeAns(){
@@ -1158,9 +1180,9 @@ function switchAnsTab(tab,e){
   const oea=document.getElementById('off-edit-area');
   if(mea&&tab!=='my'){mea.style.display='none';}
   if(oea&&tab!=='off'){oea.style.display='none';}
-  // teacher tab: render feedback + refresh from DB
+  // teacher tab: render + refresh
   if(tab==='teacher'&&curCard){
-    renderTeacherFeedback(curCard.id);
+    renderTeacherTab(curCard.id);
     refreshTeacherFeedback(curCard.id);
   }
 }
@@ -1366,6 +1388,7 @@ function installApp(){
 
 <!-- ══ TEACHER VIEW ══ -->
 <div id="teacher-view" class="screen">
+  <button class="float-home" onclick="goHome()">🏠 홈</button>
   <div class="nav-bar">
     <button class="nav-back" onclick="goHome()">←</button>
     <div class="nav-title">선생님 모드</div>
