@@ -214,6 +214,15 @@ html,body{min-height:100vh;background:var(--bg);color:var(--tx);font-family:-app
 </div>
 
 <!-- CATEGORY SELECT -->
+<div id="group-sel" class="screen">
+  <button class="float-home" onclick="goHome()">🏠 홈</button>
+  <div class="nav-bar">
+    <button class="nav-back" onclick="goHome()">←</button>
+    <div class="nav-title" id="group-ttl">분야 선택</div>
+  </div>
+  <div style="padding:1rem;display:flex;flex-direction:column;gap:.75rem" id="group-list"></div>
+</div>
+
 <div id="cat-sel" class="screen">
   <button class="float-home" onclick="goHome()">🏠 홈</button>
   <div class="nav-bar">
@@ -720,15 +729,199 @@ const CATS={
     {id:"oral_w15",name:"공통-컬러링",question:"Q76. 경기 중 컬러링(탄/오일) 규정은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"지워지는 탄 사용 금지, 인공 착색/셀프 태닝 허용, 과도한 오일 및 펄 사용은 금지됩니다."}]},
     {id:"oral_w16",name:"공통-등록절차",question:"Q77. 경기인 등록 신청은 어떤 절차로 진행되나요?",criteria:[{tag:"key",label:"모범답안",text:"대한체육회 경기인등록시스템 신청 후 시·도 단체와 대한보디빌딩협회 심사를 거쳐 승인됩니다."}]}
   ]}
+
+  ,"구술/스포츠인권":{color:"#e8554a",cards:[
+    {id:"sip_h01",name:"스포츠 폭력-정의",question:"Q. 스포츠 폭력의 정의는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"스포츠인을 대상으로 신체적, 정신적, 금전적 피해를 가하는 모든 행위입니다. (폭행, 협박, 갈취 등)"}]},
+    {id:"sip_h02",name:"성희롱·성추행·성폭행·성폭력 차이",question:"Q. 성희롱/성추행/성폭행/성폭력의 차이는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"성희롱: (말) 수치심을 주는 말이나 행동\n성추행: (접촉) 신체 접촉으로 혐오감을 주는 행위\n강제추행: (폭행/협박+접촉) 강제성이 동반된 추행\n성폭행: (성관계) 강제적 성관계\n성폭력: 위 모든 것을 포함하는 최상위 개념 (성적 자기 결정권 침해)"}]},
+    {id:"sip_h03",name:"스포츠 성폭력-정의",question:"Q. 스포츠 성폭력의 정의는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"지도자나 선배가 자신의 지위와 권력을 이용해 타인의 성적 자기 결정권을 침해하는 행위입니다."}]},
+    {id:"sip_h04",name:"성 그루밍(Grooming)",question:"Q. 성 그루밍(Grooming)이란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"가해자가 피해자와 친분을 쌓아 심리적으로 지배(길들이기)한 뒤 가해지는 성적 착취입니다."}]},
+    {id:"sip_h05",name:"성인지 감수성",question:"Q. 성인지 감수성이란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"일상 속의 성차별적 요소를 예민하게 감지하고, 성별 간의 불평등을 인지하는 능력입니다."}]},
+    {id:"sip_h06",name:"성적 자기 결정권",question:"Q. 성적 자기 결정권이란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"내 몸의 성적인 행동에 대해 스스로 판단하고, 누구와 할지 스스로 결정할 권리입니다."}]},
+    {id:"sip_h07",name:"스포츠 폭력-4가지 사례",question:"Q. 스포츠 폭력의 4가지 사례는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"신체적: 구타, 기합\n언어적: 욕설, 비아냥\n심리적: 따돌림, 소외\n방관적: 알고도 모른 척하는 행위 (중요)"}]},
+    {id:"sip_h08",name:"인권침해-대표적 사례",question:"Q. 인권침해의 대표적 사례는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"욕설과 폭행은 물론, 사적인 심부름 지시, 이유 없는 조롱, 집단 따돌림, 그리고 피해자나 신고자에게 가하는 2차 가해 등이 있습니다."}]},
+    {id:"sip_h09",name:"스포츠 성폭력-원인",question:"Q. 스포츠 성폭력의 원인은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"① 지도자와 선수 간의 권력 차이, ② 성차별적 권위주의 문화, ③ 잘못된 성 인식"}]},
+    {id:"sip_h10",name:"스포츠 폭력-예방 및 대처",question:"Q. 스포츠 폭력의 예방 및 대처 방법은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"예방: 공평한 대우, 인격 존중, 훈련 전 상세한 설명과 소통\n대처: 피해자 안전 보호 최우선, 가해자 엄중 처벌 및 재발 방지 교육"}]},
+    {id:"sip_h11",name:"스포츠 성폭력-예방 및 대처",question:"Q. 스포츠 성폭력의 예방 및 대처 방법은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"예방: 상담 시 공개된 장소 활용, 신체 접촉 시 사전 동의, 성적 농담 금지\n대처: 즉시 중단 요구, 사과 요구, 전문기관(스포츠인권센터 등) 도움 요청"}]},
+    {id:"sip_h12",name:"성폭력 피해자-대처 5단계",question:"Q. 성폭력 피해자 대처 5단계는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"① 현장 탈피 → ② 증거 확보(옷차림 유지, 병원 방문) → ③ 기록 및 증거 수집 → ④ 전문기관 도움 요청 → ⑤ 적극적 치료"}]},
+    {id:"sip_h13",name:"2차 피해-정의와 예방",question:"Q. 2차 피해의 정의와 예방 방법은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"정의: 사건 후 주위의 비난, 신상 노출 등으로 입는 추가적 정신/사회적 피해\n예방: 철저한 비밀 보장, 가해자의 보복 방지, 피해자 중심의 지지 환경 조성"}]}
+  ]}
+  ,"구술/트레이닝방법론":{color:"#7c6ff5",cards:[
+    {id:"sip_t01",name:"웨이트 트레이닝-효과",question:"Q. 웨이트 트레이닝의 효과는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"근력·파워 증대, 근육 형태 변화, 체력·근지구력·심폐기능·유연성 향상, 골밀도 증가, 체중 조절, 자신감·활력·삶의 질 향상, 스트레스 해소"}]},
+    {id:"sip_t02",name:"근육 비대 이유",question:"Q. 근육이 비대해지는 이유는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"단백질 합성 속도가 이화(분해) 속도를 능가하기 때문입니다."}]},
+    {id:"sip_t03",name:"트레이닝 5가지 원리",question:"Q. 트레이닝의 5가지 원리는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"과부하, 점진성, 반복성, 개별성, 특이성"}]},
+    {id:"sip_t04",name:"트레이닝 종류",question:"Q. 트레이닝의 종류를 설명하시오.",criteria:[{tag:"key",label:"모범답안",text:"플라이오메트릭(순발력), 서킷(세트화), 인터벌(불완전 휴식), 레피티션(완전 휴식)"}]},
+    {id:"sip_t05",name:"초보자 트레이닝 원리",question:"Q. 초보자에게 적용하는 트레이닝 원리는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"부위별 분리, 점진적 과부하, 세트 시스템, 근육 혼동 원리"}]},
+    {id:"sip_t06",name:"중급자 트레이닝 원리",question:"Q. 중급자 트레이닝 원리를 설명하시오.",criteria:[{tag:"key",label:"모범답안",text:"슈퍼 세트(반대 근육), 컴파운드(동일 근육 2종), 피라미드, 스플릿, 플러싱"}]},
+    {id:"sip_t07",name:"운동 배열 원리",question:"Q. 운동 배열 원리는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"대근육 → 소근육 / 다중 관절 → 단순 관절 순서로 배열합니다."}]},
+    {id:"sip_t08",name:"목표별 반복 횟수",question:"Q. 운동 목표별 적정 반복 횟수는 어떻게 되나요?",criteria:[{tag:"key",label:"모범답안",text:"근력: 1~5회 / 근비대: 6~12회 / 근지구력: 12~15회 이상"}]},
+    {id:"sip_t09",name:"기본 호흡법",question:"Q. 웨이트 트레이닝의 기본 호흡법은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"수축 시 내뱉고, 이완 시 마십니다."}]},
+    {id:"sip_t10",name:"발살바 호흡",question:"Q. 발살바 호흡이란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"숨을 참고 복압을 높여 지지력을 극대화하는 호흡법입니다. 고중량 시 유리하나 환자에게는 금지합니다."}]},
+    {id:"sip_t11",name:"초과 회복",question:"Q. 초과 회복이란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"휴식 중 운동 전보다 더 높은 수준으로 회복되는 현상입니다."}]},
+    {id:"sip_t12",name:"오버 트레이닝",question:"Q. 오버 트레이닝이란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"고강도 훈련으로 컨디션 회복이 안 되는 상태입니다."}]},
+    {id:"sip_t13",name:"기회의 창",question:"Q. 기회의 창이란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"운동 후 30분 이내, 영양 흡수가 극대화되는 상태입니다."}]},
+    {id:"sip_t14",name:"심박수 계산법",question:"Q. 최대 심박수와 목표 심박수 계산법은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"최대 심박수: 220 - 나이\n목표 심박수: (최대-안정시) × 강도 + 안정시"}]},
+    {id:"sip_t15",name:"보디빌딩 5대 요소",question:"Q. 보디빌딩의 5대 요소는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"트레이닝, 영양, 휴식, 컬러링, 정신 자세"}]}
+  ]}
+  ,"구술/운동영양학":{color:"#25b87a",cards:[
+    {id:"sip_n01",name:"6대 필수 영양소",question:"Q. 6대 필수 영양소는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"탄수화물, 단백질, 지방, 무기질, 비타민, 물"}]},
+    {id:"sip_n02",name:"탄수화물의 역할",question:"Q. 탄수화물의 역할은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"주 에너지원, 단백질 절약 작용. 간/근육(글리코겐) 및 혈액(글루코스)에 저장됩니다."}]},
+    {id:"sip_n03",name:"단백질의 역할",question:"Q. 단백질의 역할은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"세포/조직 구성, 효소/호르몬 생성. 운동 후 60분 이내가 섭취 최적기입니다."}]},
+    {id:"sip_n04",name:"지방의 역할",question:"Q. 지방의 역할은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"지용성 비타민 운반, 허기 억제. 중성지방 형태로 저장됩니다. 최소 지방 보유율: 남성 5%, 여성 10%"}]},
+    {id:"sip_n05",name:"칼로리 계산",question:"Q. 각 영양소의 칼로리는 어떻게 되나요?",criteria:[{tag:"key",label:"모범답안",text:"탄수화물·단백질: 4kcal/g\n지방: 9kcal/g\n트레이닝 중 성인 필요 칼로리: 3,000~3,500kcal"}]},
+    {id:"sip_n06",name:"카보 로딩",question:"Q. 카보 로딩이란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"시합 전 탄수화물 저장량을 높여 경기력과 근육 볼륨감을 올리는 방법입니다."}]},
+    {id:"sip_n07",name:"동화 vs 이화",question:"Q. 동화작용과 이화작용의 차이는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"동화: 합성, 회복, 성장 / 이화: 분해, 에너지 발생, 공복 상태"}]},
+    {id:"sip_n08",name:"BCAA",question:"Q. BCAA란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"류신, 이소류신, 발린으로 구성된 분지사슬 아미노산입니다. 근육 회복 및 피로 방지에 효과적입니다."}]},
+    {id:"sip_n09",name:"크레아틴",question:"Q. 크레아틴의 역할은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"골격근에 저장되어 폭발적 에너지를 공급합니다. 대사 부산물은 크레아티닌으로 소변으로 배출됩니다."}]},
+    {id:"sip_n10",name:"유산소 시 연료원",question:"Q. 웨이트와 유산소 운동의 주 연료원은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"웨이트는 탄수화물, 유산소는 지방이 주연료입니다. (사용 순서: 탄 > 지 > 단)"}]},
+    {id:"sip_n11",name:"수분의 역할",question:"Q. 운동 시 수분의 역할은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"체온 조절, 영양 전달, 노폐물 배출. 탈수 시 생리 기능 실조 및 운동 능력 상실이 발생합니다."}]}
+  ]}
+  ,"구술/운동생리학":{color:"#5c55e8",cards:[
+    {id:"sip_p01",name:"근육의 종류",question:"Q. 근육의 종류를 설명하시오.",criteria:[{tag:"key",label:"모범답안",text:"골격근(수의근/가로무늬), 심장근(불수의근/가로무늬), 내장근(불수의근/민무늬)"}]},
+    {id:"sip_p02",name:"근섬유 종류",question:"Q. 근섬유의 종류와 특성은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"지근(타입1, 느림, 유산소), 속근(타입2, 빠름, 웨이트)"}]},
+    {id:"sip_p03",name:"주동근과 길항근",question:"Q. 주동근과 길항근이란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"주동근: 직접 움직임을 만드는 근육\n길항근: 반대에서 안정과 조절을 돕는 근육"}]},
+    {id:"sip_p04",name:"근수축 형태",question:"Q. 근수축의 형태를 설명하시오.",criteria:[{tag:"key",label:"모범답안",text:"등장성: 길이 변화 있음(동적/스쿼트)\n등척성: 길이 변화 없음(정적/플랭크)\n등속성: 일정한 속도로 수축(재활)"}]},
+    {id:"sip_p05",name:"에너지 대사 시스템",question:"Q. 3가지 에너지 대사 시스템을 설명하시오.",criteria:[{tag:"key",label:"모범답안",text:"ATP-PC 시스템: 가장 빠른 무산소 에너지원\n젖산 시스템: 글리코겐을 산소 없이 분해, 젖산 축적\n유산소 시스템: 산소 이용, 장시간 다량의 ATP 생성"}]},
+    {id:"sip_p06",name:"인체면 종류",question:"Q. 인체면의 종류를 설명하시오.",criteria:[{tag:"key",label:"모범답안",text:"정중면(좌우대칭), 시상면(좌우/굽힘·폄), 이마면(앞뒤/벌림·모음), 수평면(위아래/회전)"}]},
+    {id:"sip_p07",name:"항상성",question:"Q. 항상성이란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"자극에 반응하여 인체 기능을 정상(원상복구)으로 유지하려는 성질입니다."}]},
+    {id:"sip_p08",name:"산소 부채(EPOC)",question:"Q. 산소 부채(EPOC)란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"운동 종료 후에도 칼로리 소모가 지속되는 현상입니다. (운동 후 몰아서 쉬는 숨)"}]},
+    {id:"sip_p09",name:"세컨드 윈드",question:"Q. 세컨드 윈드란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"고통스러운 사점(Dead Point)을 지나 호흡이 안정되는 시점입니다."}]},
+    {id:"sip_p10",name:"자율신경계",question:"Q. 자율신경계의 역할은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"교감신경(촉진/운동 시)과 부감신경(억제/휴식 시)의 길항 작용으로 신체를 조절합니다."}]},
+    {id:"sip_p11",name:"1RM",question:"Q. 1RM이란 무엇이며 근비대에 적합한 부하는 얼마인가요?",criteria:[{tag:"key",label:"모범답안",text:"1RM은 1회 최대 들어 올릴 수 있는 무게입니다. 근비대에 적합한 부하는 1RM의 65~85%입니다."}]}
+  ]}
+  ,"구술/생활체육":{color:"#e8a020",cards:[
+    {id:"sip_l01",name:"생활체육-정의",question:"Q. 생활체육의 정의는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"남녀노소 누구나 전 생애에 걸쳐 여가 시간에 자율적으로 참여하는 체육 활동입니다. (Sports for All)"}]},
+    {id:"sip_l02",name:"생활체육-목적과 목표",question:"Q. 생활체육의 목적과 목표는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"목적: 건강 증진 및 여가 선용을 통한 삶의 질 향상\n목표: 내용의 다양화, 활동의 생활화, 방법의 합리화, 환경의 복지화"}]},
+    {id:"sip_l03",name:"생활체육 구성 3요소",question:"Q. 생활체육의 구성 3요소는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"시설, 프로그램, 지도자"}]},
+    {id:"sip_l04",name:"운영 원리 5가지",question:"Q. 생활체육 운영 원리 5가지는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"목적성, 개별성, 자발성, 창조성, 평가성"}]},
+    {id:"sip_l05",name:"생활체육 영역",question:"Q. 생활체육의 영역을 설명하시오.",criteria:[{tag:"key",label:"모범답안",text:"가정 체육(가족), 직장 체육(생산성), 지역사회 체육(복지), 상업 체육(서비스)"}]},
+    {id:"sip_l06",name:"지도자의 자질",question:"Q. 생활체육 지도자의 자질은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"의사 전달 능력, 투철한 사명감, 활달한 성격, 도덕적 품성, 공정성, 칭찬의 미덕"}]},
+    {id:"sip_l07",name:"웰니스(Wellness)",question:"Q. 웰니스(Wellness)란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"웰빙 + 행복 + 건강의 합성어. 신체·정신·사회적 건강의 조화를 의미합니다."}]},
+    {id:"sip_l08",name:"프로그램 계획 과정",question:"Q. 생활체육 프로그램 계획 과정은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"욕구 조사 → 목표 설정 → 계획 수립 → 실행 → 평가 및 보완"}]}
+  ]}
+  ,"구술/응급처치":{color:"#c0392b",cards:[
+    {id:"sip_e01",name:"응급처치-필요성",question:"Q. 응급처치의 필요성은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"생명 구조, 상태 악화 방지, 통증 경감, 치료 및 회복 기간 단축"}]},
+    {id:"sip_e02",name:"행동 요령 3단계",question:"Q. 응급 상황 시 행동 요령 3단계는 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"① 현장 조사(상황 확인) → ② 연락(119 신고) → ③ 처치 및 도움(환자 돌봄)"}]},
+    {id:"sip_e03",name:"의식 없는 환자 처치 순서",question:"Q. 의식 없는 환자의 처치 순서를 설명하시오.",criteria:[{tag:"key",label:"모범답안",text:"의식 확인 → 119 신고 → 호흡 확인 → 흉부 압박(30회) → 기도 개방 → 인공호흡(2회) → 순환 확인"}]},
+    {id:"sip_e04",name:"흉부 압박 수치",question:"Q. 흉부 압박의 위치, 깊이, 속도, 비율은 어떻게 되나요?",criteria:[{tag:"key",label:"모범답안",text:"위치: 복장뼈(흉골) 아래쪽 1/2 지점\n깊이: 5~6cm\n속도: 분당 100~120회\n비율: 압박 30 : 인공호흡 2"}]},
+    {id:"sip_e05",name:"AED 사용법",question:"Q. AED 사용법을 순서대로 설명하시오.",criteria:[{tag:"key",label:"모범답안",text:"전원 켜기 → 패드 부착 → 리듬 분석 → 쇼크(충격) → 즉시 CPR 재개"}]},
+    {id:"sip_e06",name:"RICE 처치법",question:"Q. RICE 처치법이란 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"Rest(휴식), Ice(냉찜질), Compression(압박), Elevation(거상)"}]},
+    {id:"sip_e07",name:"화상 처치",question:"Q. 화상 처치 방법은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"찬물에 10분 이상 식히기. 물집은 절대 터뜨리지 않음, 연고나 기름 바르지 않음"}]},
+    {id:"sip_e08",name:"하임리히법",question:"Q. 기도 폐쇄 시 하임리히법은 어떻게 시행하나요?",criteria:[{tag:"key",label:"모범답안",text:"의식 있을 때: 기침 유도 후 효과 없으면 배꼽과 명치 사이를 후상방으로 강하게 밀어 올림\n의식 없을 때: 즉시 심폐소생술 실시"}]},
+    {id:"sip_e09",name:"CPR 중단 조건",question:"Q. CPR을 중단하는 조건은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"현장이 위험해질 때, 환자의 의식이 돌아왔을 때, 의료진에게 인계했을 때"}]}
+  ]}
 }
 
 
 
 // 목록(범위선택)으로 돌아가기
+
+// ── 그룹 선택 화면 ──
+var curGroupFilter = null; // 선택된 cats 필터
+
+function showGroupSel(m){
+  curMode = m;
+  curGroupFilter = null;
+  var ttls = {learn:'실기평가',pose:'실전기술',oral:'구술검정',quiz:'시험 모드'};
+  document.getElementById('group-ttl').textContent = ttls[m]||m;
+  var list = document.getElementById('group-list');
+  list.innerHTML = '';
+  var groups = GROUPS[m] || [];
+  groups.forEach(function(g){
+    var cardCount = 0;
+    if(g.isAll){
+      Object.entries(CATS).forEach(function(entry){
+        var cat=entry[0], data=entry[1];
+        if(m==='oral'&&!cat.startsWith('구술')) return;
+        if(m==='pose'&&!cat.startsWith('실전')) return;
+        if((m==='learn'||m==='quiz')&&(cat.startsWith('구술')||cat.startsWith('실전'))) return;
+        cardCount += data.cards.length;
+      });
+    } else if(g.cats) {
+      g.cats.forEach(function(c){ if(CATS[c]) cardCount += CATS[c].cards.length; });
+    }
+
+    var btn = document.createElement('div');
+    btn.style.cssText = 'background:var(--cd);border-radius:var(--rs);padding:1rem 1.2rem;display:flex;align-items:center;gap:.75rem;cursor:pointer;box-shadow:var(--sh);transition:transform .1s';
+    btn.innerHTML = '<span style="font-size:28px">' + g.emoji + '</span>' +
+      '<div style="flex:1"><div style="font-size:15px;font-weight:700;color:var(--tx)">' + g.label + '</div>' +
+      '<div style="font-size:12px;color:var(--tx3);margin-top:2px">' + cardCount + '개 카드</div></div>' +
+      '<span style="font-size:18px;color:var(--tx3)">›</span>';
+    btn.addEventListener('click', function(){
+      if(g.modeFilter && g.modeFilter !== 'all'){
+        curGroupFilter = null;
+        // quiz 모드에서 특정 분야만 필터
+        var mf = g.modeFilter;
+        var tmpFilter = [];
+        Object.keys(CATS).forEach(function(cat){
+          if(mf==='learn' && !cat.startsWith('구술') && !cat.startsWith('실전')) tmpFilter.push(cat);
+          if(mf==='pose' && cat.startsWith('실전')) tmpFilter.push(cat);
+          if(mf==='oral' && cat.startsWith('구술')) tmpFilter.push(cat);
+        });
+        curGroupFilter = tmpFilter;
+        buildCatSel('quiz');
+        return;
+      }
+      if(g.isAll){
+        curGroupFilter = null;
+      } else {
+        curGroupFilter = g.cats;
+      }
+      buildCatSel(curMode);
+    });
+    list.appendChild(btn);
+  });
+  showScreen('group-sel');
+}
+
 function goBackToList(){
   stopTimer();
-  buildCatSel(curMode);
+  curGroupFilter = null;
+  showGroupSel(curMode);
 }
+
+// ── 그룹 데이터 ──
+const GROUPS = {
+  learn: [
+    {id:'g_chest',  emoji:'💪', label:'가슴',     cats:['기초/상체/가슴']},
+    {id:'g_bicep',  emoji:'💪', label:'팔 (이두)',  cats:['기초/상체/팔(이두)']},
+    {id:'g_tricep', emoji:'💪', label:'팔 (삼두)',  cats:['기초/상체/팔(삼두)']},
+    {id:'g_fore',   emoji:'💪', label:'팔 (전완)',  cats:['기초/상체/팔(전완)']},
+    {id:'g_back',   emoji:'🔙', label:'등',        cats:['기초/상체/등']},
+    {id:'g_shoulder',emoji:'🏋️',label:'어깨',     cats:['기초/상체/어깨']},
+    {id:'g_abs',    emoji:'🔥', label:'복부',      cats:['기초/상체/복부']},
+    {id:'g_leg',    emoji:'🦵', label:'하체',      cats:['기초/하체']},
+    {id:'g_all_learn', emoji:'📋', label:'전체 선택', cats:null, isAll:true}
+  ],
+  pose: [
+    {id:'g_mbb',  emoji:'🏆', label:'남자 보디빌딩·클래식', cats:['실전/남자보디빌딩·클래식/규정포즈']},
+    {id:'g_mp',   emoji:'🏆', label:'남자 피지크',          cats:['실전/남자피지크/쿼터턴']},
+    {id:'g_wp',   emoji:'🏆', label:'여자 피지크',          cats:['실전/여자피지크/규정포즈']},
+    {id:'g_wbf',  emoji:'🏆', label:'여자 피지크·보디피트니스', cats:['실전/여자피지크·보디피트니스/쿼터턴']},
+    {id:'g_wv',   emoji:'🏆', label:'여자 비키니',          cats:['실전/여자비키니/쿼터턴']},
+    {id:'g_all_pose', emoji:'📋', label:'전체 선택', cats:null, isAll:true}
+  ],
+  oral: [
+    {id:'g_or1', emoji:'📖', label:'IFBB 경기인등록·위원회', cats:['구술/IFBB경기규칙/경기인등록·위원회']},
+    {id:'g_or2', emoji:'📖', label:'IFBB 도핑관리',         cats:['구술/IFBB경기규칙/도핑관리']},
+    {id:'g_or3', emoji:'📖', label:'IFBB 보디빌딩개론·경기규정', cats:['구술/IFBB경기규칙/보디빌딩개론·경기규정']},
+    {id:'g_or4', emoji:'📖', label:'IFBB 남자피지크·클래식피지크', cats:['구술/IFBB경기규칙/남자피지크·클래식피지크']},
+    {id:'g_or5', emoji:'📖', label:'IFBB 여자종목·컬러링', cats:['구술/IFBB경기규칙/여자종목·컬러링']},
+    {id:'g_or6', emoji:'🤝', label:'스포츠 인권',    cats:['구술/스포츠인권']},
+    {id:'g_or7', emoji:'🏋️', label:'트레이닝 방법론', cats:['구술/트레이닝방법론']},
+    {id:'g_or8', emoji:'🥗', label:'운동영양학',     cats:['구술/운동영양학']},
+    {id:'g_or9', emoji:'🫀', label:'운동생리학',     cats:['구술/운동생리학']},
+    {id:'g_or10',emoji:'🏃', label:'생활체육',       cats:['구술/생활체육']},
+    {id:'g_or11',emoji:'🚑', label:'응급처치',       cats:['구술/응급처치']},
+    {id:'g_all_oral', emoji:'📋', label:'전체 선택', cats:null, isAll:true}
+  ],
+  quiz: [
+    {id:'g_quiz_learn', emoji:'💪', label:'실기평가 전체', cats:null, isAll:true, modeFilter:'learn'},
+    {id:'g_quiz_pose',  emoji:'🏆', label:'실전기술 전체', cats:null, isAll:true, modeFilter:'pose'},
+    {id:'g_quiz_oral',  emoji:'🎤', label:'구술검정 전체', cats:null, isAll:true, modeFilter:'oral'},
+    {id:'g_quiz_all',   emoji:'📋', label:'전체 랜덤',     cats:null, isAll:true, modeFilter:'all'}
+  ]
+};
+
 // ── 퀴즈 정답 확인 ──
 let answerShown = false;
 function toggleQuizAnswer(){
@@ -1004,17 +1197,7 @@ function goHome(){stopTimer();showScreen('home');updateStats();}
 // ── MODE ENTRY ──
 function goMode(m){
   curMode=m;
-  if(m==='pose'){
-    curMode='pose';
-    buildCatSel('pose');
-    return;
-  }
-  if(m==='oral'){
-    curMode='oral';
-    buildCatSel('oral');
-    return;
-  }
-  buildCatSel(m);
+  showGroupSel(m);
 }
 
 // ── CATEGORY ──
@@ -1037,7 +1220,9 @@ function buildCatSel(m){
     // 모드별 카테고리 필터
     if(m==='oral' && !cat.startsWith('구술')) return;
     if(m==='pose' && !cat.startsWith('실전')) return;
-    if((m==='learn'||m==='quiz') && (cat.startsWith('구술') || cat.startsWith('실전'))) return;
+    if(m==='learn' && (cat.startsWith('구술') || cat.startsWith('실전'))) return;
+    if(m==='quiz' && !curGroupFilter && (cat.startsWith('구술') || cat.startsWith('실전'))) return;
+    if(curGroupFilter && !curGroupFilter.includes(cat)) return;
 
     const grp=document.createElement('div');grp.className='cat-group';
     const pts=cat.split('/');
