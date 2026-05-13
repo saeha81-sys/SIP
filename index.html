@@ -1290,6 +1290,7 @@ function buildCatSel(m){
   Object.entries(CATS).forEach(([cat,data])=>{
     // 모드별 카테고리 필터
     if(m==='oral' && !cat.startsWith('구술')) return;
+    if(m==='oral' && !cat.startsWith('구술')) return;
     if(m==='pose' && !cat.startsWith('실전')) return;
     if(m==='learn' && (cat.startsWith('구술') || cat.startsWith('실전'))) return;
     if(m==='quiz' && !curGroupFilter && (cat.startsWith('구술') || cat.startsWith('실전'))) return;
