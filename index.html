@@ -404,13 +404,13 @@ html,body{min-height:100vh;background:var(--bg);color:var(--tx);font-family:-app
 
 <script>
 const GITHUB_IMAGES={
-  "l001":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/45__%EB%B0%94%EB%B2%A8_%EB%B0%B1_%EC%8A%A4%EC%BF%BC%ED%8A%B8.png",
-  "l002":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/46__%EB%B0%94%EB%B2%A8_%ED%94%84%EB%9F%B0%ED%8A%B8_%EC%8A%A4%EC%BF%BC%ED%8A%B8.png",
-  "l003":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/47__%EA%B3%A0%EB%B8%94%EB%A6%BF_%EC%8A%A4%EC%BF%BC%ED%8A%B8.png",
-  "l004":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/48__%EB%8D%A4%EB%B2%A8_%EB%B6%88%EA%B0%80%EB%A6%AC%EC%95%88_%EC%8A%A4%ED%94%8C%EB%A6%BF_%EC%8A%A4%EC%BF%BC%ED%8A%B8.png",
-  "l005":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/49__%EC%8A%A4%ED%8B%B0%ED%94%84_%EB%A0%88%EA%B7%B8_%EB%8D%B0%EB%93%9C%EB%A6%AC%ED%94%84%ED%8A%B8.png",
-  "l006":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/50__%EB%B0%94%EB%B2%A8_%EB%9F%B0%EC%A7%80.png",
-  "l007":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/51__%EB%8D%A4%EB%B2%A8_%EB%9F%B0%EC%A7%80.png",
+  "l001":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/45__바벨_백_스쿼트.png",
+  "l002":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/46__바벨_프런트_스쿼트.png",
+  "l003":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/47__고블릿_스쿼트.png",
+  "l004":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/48__덤벨_불가리안_스플릿_스쿼트.png",
+  "l005":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/49__스티프_레그_데드리프트.png",
+  "l006":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/50__바벨_런지.png",
+  "l007":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/51__덤벨_런지.png",
   "pose_b01":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/MBB.%201.%20Front%20Double%20Biceps.png",
   "pose_b02":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/MBB.%202.%20Front%20Lat%20Spread.png",
   "pose_b03":"https://raw.githubusercontent.com/saeha81-sys/SIP/main/images/MBB.%203.%20Side%20Chest.png",
@@ -885,6 +885,108 @@ const GROUPS = {
     {id:'g_quiz_oral',  emoji:'🎤', label:'구술검정 전체', cats:null, isAll:true, modeFilter:'oral'},
     {id:'g_quiz_all',   emoji:'📋', label:'전체 랜덤',     cats:null, isAll:true, modeFilter:'all'}
   ]
+  ,"실전/남자보디빌딩·클래식보디빌딩/규정포즈":{color:"#e8554a",cards:[
+    {id:"pose_b01",name:"Front Double Biceps",criteria:[
+      {tag:"foot",label:"발",text:"심판을 향해 정면으로 서서 한 발을 약간 40~50cm 바깥쪽 앞에 놓는다"},
+      {tag:"hand",label:"손",text:"두 팔을 들어 어깨와 수평한 위치에서 팔꿈치를 구부린다 / 이두근과 전완근이 수축되도록 주먹을 꽉 쥐고 아래를 향하게 한다"},
+      {tag:"muscle",label:"수축",text:"머리부터 발끝까지 가능한 한 많은 전면 근육을 수축"}]},
+    {id:"pose_b02",name:"Front Lat Spread",criteria:[
+      {tag:"foot",label:"발",text:"심판을 향해 정면으로 서서 다리와 발의 안쪽 라인을 15cm까지 벌려준다"},
+      {tag:"hand",label:"손",text:"펼치거나 주먹을 쥔 손을 허리 하부 또는 복사근에 위치시켜 광배근을 펼쳐 보인다"},
+      {tag:"muscle",label:"수축",text:"머리부터 발끝까지 가능한 한 많은 전면 근육을 수축한다"}]},
+    {id:"pose_b03",name:"Side Chest",criteria:[
+      {tag:"foot",label:"발",text:"우측이나 좌측을 바라보고 선 후 심판을 향해 고개와 상체를 틀어준다 / 심판과 가까운 쪽 다리의 무릎을 구부리고 발가락으로 지탱한다"},
+      {tag:"hand",label:"손",text:"심판과 가까운 쪽 팔을 직각으로 구부린 후 손은 주먹을 쥐고 다른 한 손은 주먹을 쥔 손의 손목을 잡는다"},
+      {tag:"muscle",label:"수축",text:"배를 넣고 가슴을 살짝 들고 상완이두근을 최대한 수축한다"}]},
+    {id:"pose_b04",name:"Back Double Biceps",criteria:[
+      {tag:"foot",label:"발",text:"뒷모습이 심판을 향해 서서 한 발을 뒤로 빼서 발가락으로 지탱한다"},
+      {tag:"hand",label:"손",text:"두 팔을 들어 어깨와 수평한 위치에서 팔꿈치를 구부린다 / 주먹을 꽉 쥐고 아래를 향하게 한다"},
+      {tag:"muscle",label:"수축",text:"어깨, 상완이두근, 상완삼두근, 등 상하부, 둔근, 허벅지, 비복근 전체를 수축시킨다"}]},
+    {id:"pose_b05",name:"Back Lat Spread",criteria:[
+      {tag:"foot",label:"발",text:"뒷모습이 심판에게 보이게 서서 다리와 발의 안쪽 라인을 최대 15cm까지 벌려준다"},
+      {tag:"hand",label:"손",text:"양손을 허리 위에 올리고 광배근을 최대한 펼쳐 보인다"},
+      {tag:"muscle",label:"수축",text:"머리부터 발끝까지 가능한 한 많은 후면 전체 근육을 수축한다"}]},
+    {id:"pose_b06",name:"Side Triceps",criteria:[
+      {tag:"foot",label:"발",text:"우측이나 좌측을 바라보고 선 후 심판을 향해 고개와 상체를 틀어준다 / 심판과 가까운 쪽 다리의 무릎을 굽히고 발바닥을 바닥에 붙인다 / 심판과 먼 쪽 다리의 무릎을 굽히고 발가락으로 지탱한다"},
+      {tag:"hand",label:"손",text:"두 팔을 등 뒤에 놓고 깍지를 끼거나 앞쪽에 있는 팔의 손목을 잡는다"},
+      {tag:"muscle",label:"수축",text:"앞쪽 팔에 압력을 가하여 상완삼두근을 수축시킨다"}]},
+    {id:"pose_b07",name:"Abdominal & Thighs",criteria:[
+      {tag:"foot",label:"발",text:"심판을 향해 정면으로 서서 한쪽 발을 앞에 놓고 발가락으로 지탱한다"},
+      {tag:"hand",label:"손",text:"두 팔을 머리 뒤에 놓고 호흡을 들이마신다"},
+      {tag:"muscle",label:"수축",text:"몸통을 약간 앞쪽으로 보내며 크런칭 자세로 복부근육을 수축 / 동시에 하체 전면 근육도 수축시킨다"}]}
+  ]}
+  ,"실전/남자피지크/쿼터턴":{color:"#6c63ff",cards:[
+    {id:"pose_p01",name:"Front Position",criteria:[
+      {tag:"foot",label:"발",text:"몸에 긴장을 유지한 채 바르게 서서 한 다리는 약간 측면으로 뻗어준다"},
+      {tag:"hand",label:"손",text:"네 손가락을 몸 앞쪽으로 둔 채 한 손을 허리에 얹고 다른 손은 몸을 따라 아래로 늘어뜨린 상태에서 팔꿈치를 살짝 구부린다"},
+      {tag:"muscle",label:"수축",text:"무릎은 펴고 복근과 광배근을 살짝 수축시킨 상태에서 고개를 들어준다"}]},
+    {id:"pose_p02",name:"Quarter Turn Right (왼쪽 측면)",criteria:[
+      {tag:"foot",label:"발",text:"몸의 왼편이 심판을 향하게 선 상태에서 상체를 약간 심판 쪽으로 돌려준다 / 왼쪽 다리의 무릎을 약간 구부리고 발은 바닥에 딱 붙인다 / 오른쪽 다리의 무릎을 구부리고 뒤쪽으로 빼서 발가락으로 체중을 지탱한다"},
+      {tag:"hand",label:"손",text:"왼손은 왼쪽 허리에 얹는다 / 오른팔은 몸의 중심선보다 약간 앞에 두고 손바닥을 편 채로 손가락을 보기 좋게 정렬하고 팔꿈치는 약간 구부린다"},
+      {tag:"muscle",label:"수축",text:"측면 근육 라인을 강조하며 전체적으로 균형 잡힌 자세를 유지한다"}]},
+    {id:"pose_p03",name:"Quarter Turn Back",criteria:[
+      {tag:"foot",label:"발",text:"몸에 긴장을 유지한 채 바르게 서서 한 다리는 약간 측면으로 뻗어준다"},
+      {tag:"hand",label:"손",text:"네 손가락을 몸 앞쪽으로 둔 채 한 손을 허리에 얹고 다른 손은 몸을 따라 아래로 늘어뜨린 상태에서 팔꿈치를 살짝 구부린다"},
+      {tag:"muscle",label:"수축",text:"후면 근육 전체를 수축시키며 균형 잡힌 자세를 유지한다"}]},
+    {id:"pose_p04",name:"Quarter Turn Right (오른쪽 측면)",criteria:[
+      {tag:"foot",label:"발",text:"몸의 오른편이 심판을 향하게 선 상태에서 상체를 약간 심판 쪽으로 돌려준다 / 오른쪽 다리의 무릎을 약간 구부리고 발은 바닥에 딱 붙인다 / 왼쪽 다리의 무릎을 구부리고 뒤쪽으로 빼서 발가락으로 체중을 지탱한다"},
+      {tag:"hand",label:"손",text:"오른손은 오른쪽 허리에 얹는다 / 왼팔은 몸의 중심선보다 약간 앞에 두고 손바닥을 편 채로 손가락을 보기 좋게 정렬하고 팔꿈치는 약간 구부린다"},
+      {tag:"muscle",label:"수축",text:"측면 근육 라인을 강조하며 전체적으로 균형 잡힌 자세를 유지한다"}]}
+  ]}
+  ,"실전/여자피지크/규정포즈":{color:"#ff6b6b",cards:[
+    {id:"pose_wf01",name:"Front Double Biceps (여자피지크)",criteria:[
+      {tag:"foot",label:"발",text:"오른쪽 또는 왼쪽 다리를 바깥쪽으로 빼고 다리와 발을 일직선상에 둔 채 정면을 바라보고 선다"},
+      {tag:"hand",label:"손",text:"두 팔을 들어 어깨높이까지 올린 다음 팔꿈치를 구부린다 / 손을 편 상태에서 손가락이 하늘을 향하게 한다"},
+      {tag:"muscle",label:"수축",text:"머리부터 발끝까지 가능한 많은 근육을 수축시킬 수 있도록 노력한다"}]},
+    {id:"pose_wf02",name:"Side Chest (여자피지크)",criteria:[
+      {tag:"foot",label:"발",text:"우측이나 좌측을 바라보고 선 후 심판을 향해 고개와 상체를 틀어준다 / 심판과 먼 쪽 다리는 발바닥을 땅에 붙이고 무릎을 약간 구부린다 / 심판과 가까운 쪽 다리는 곧게 펴고 앞으로 뻗어 발가락으로 지탱한다"},
+      {tag:"hand",label:"손",text:"배를 안으로 집어넣은 상태에서 양 팔을 몸 앞쪽에 위치시키고 양 손은 깍지를 끼거나 한 손을 다른 한 손에 포개어 손바닥이 아래쪽을 향하게 한다"},
+      {tag:"muscle",label:"수축",text:"가슴근육, 삼두근, 대퇴사두근, 대퇴이두근, 비복근을 수축한다"}]},
+    {id:"pose_wf03",name:"Back Double Biceps (여자피지크)",criteria:[
+      {tag:"foot",label:"발",text:"뒷모습이 심판을 향하게 서서 한 쪽 발을 뒤로 빼서 발가락으로 지탱한다"},
+      {tag:"hand",label:"손",text:"두 팔을 어깨 높이까지 올리고 팔꿈치를 구부리며 두 손은 펴서 손가락이 하늘을 향하게 한다"},
+      {tag:"muscle",label:"수축",text:"어깨, 등 상하부, 대퇴이두근, 둔근, 비복근 후면 전체를 수축시킨다"}]},
+    {id:"pose_wf04",name:"Side Triceps (여자피지크)",criteria:[
+      {tag:"foot",label:"발",text:"우측이나 좌측을 바라보고 선 후 심판을 향해 고개와 상체를 틀어준다 / 심판과 먼 쪽 다리는 발바닥을 지면에 붙이고 무릎을 약간 구부린다 / 심판과 가까운 쪽 다리는 곧게 앞으로 뻗어 발가락으로 체중을 지탱한다"},
+      {tag:"hand",label:"손",text:"복부를 집어넣고 가슴을 내밀고 두 팔을 등 뒤에 위치한다 / 심판과 가까운 쪽 팔을 곧게 펴고 손바닥이 지면을 향하게 한다 / 앞에 있는 손목을 뒤쪽 손으로 잡고 앞쪽 팔에 압력을 가하여 상완삼두근을 수축시킨다"},
+      {tag:"muscle",label:"수축",text:"상완삼두근 및 전체적인 비율을 강조한다"}]}
+  ]}
+  ,"실전/여자피지크·보디피트니스/쿼터턴":{color:"#e8a020",cards:[
+    {id:"pose_wbf01",name:"Front Position (여자피지크·보디피트니스)",criteria:[
+      {tag:"foot",label:"발",text:"바르게 서서 발뒤꿈치를 모은 상태에서 양발을 바깥쪽 30도 각도로 벌린다 / 양 무릎을 붙인 채로 편다"},
+      {tag:"hand",label:"손",text:"두 팔을 신체 중심선을 따라 측면으로 내리고 팔꿈치를 약간 구부린다 / 손바닥이 몸통을 바라보게 한 상태에서 손을 살짝 오므린다"},
+      {tag:"muscle",label:"수축",text:"배는 안으로 집어넣고 가슴을 내밀고 어깨를 뒤로 젖힌다"}]},
+    {id:"pose_wbf02",name:"Quarter Turn Right - 왼쪽 측면",criteria:[
+      {tag:"foot",label:"발",text:"바르게 서서 양발을 바깥쪽 30도 각도로 벌린 채로 선다 / 무릎을 펴고 배는 안으로 집어넣고 가슴은 내민 채 어깨를 뒤로 젖힌다"},
+      {tag:"hand",label:"손",text:"왼 팔을 신체 중심선보다 약간 뒤로 두고 손바닥이 몸통을 바라보게 한 상태에서 손을 살짝 오므린다 / 팔꿈치를 살짝 구부린 오른 팔을 신체 전방에 위치시키고 손바닥이 몸통을 바라보게 한다"},
+      {tag:"muscle",label:"수축",text:"왼쪽 측면 근육 라인을 강조한다"}]},
+    {id:"pose_wbf03",name:"Quarter Turn Back",criteria:[
+      {tag:"foot",label:"발",text:"바르게 서서 발뒤꿈치를 모은 상태에서 양발을 바깥쪽 30도 각도로 벌린다 / 양 무릎을 붙인 채로 편다"},
+      {tag:"hand",label:"손",text:"두 팔을 신체 중심선을 따라 측면으로 내리고 팔꿈치를 약간 구부린다 / 손바닥이 몸통을 바라보게 한 상태에서 손을 살짝 오므린다"},
+      {tag:"muscle",label:"수축",text:"배는 안으로 집어넣고 가슴을 내밀고 어깨를 뒤로 젖혀 후면 근육을 강조한다"}]},
+    {id:"pose_wbf04",name:"Quarter Turn Right - 오른쪽 측면",criteria:[
+      {tag:"foot",label:"발",text:"바르게 서서 양발을 바깥쪽 30도 각도로 벌린 채로 선다 / 무릎을 펴고 배는 안으로 집어넣고 가슴은 내민 채 어깨를 뒤로 젖힌다"},
+      {tag:"hand",label:"손",text:"오른 팔을 신체 중심선보다 약간 뒤로 두고 손바닥이 몸통을 바라보게 한 상태에서 손을 살짝 오므린다 / 팔꿈치를 살짝 구부린 왼 팔을 신체 전방에 위치시키고 손바닥이 몸통을 바라보게 한다"},
+      {tag:"muscle",label:"수축",text:"오른쪽 측면 근육 라인을 강조한다"}]}
+  ]}
+  ,"실전/여자비키니/쿼터턴":{color:"#e8559a",cards:[
+    {id:"pose_wb01",name:"Front Position (여자비키니)",criteria:[
+      {tag:"foot",label:"발",text:"바르게 서서 한 손을 허리에 얹고 한 발은 약간 옆으로 뻗어준다"},
+      {tag:"hand",label:"손",text:"다른 손은 몸을 따라 아래로 늘어뜨린 상태에서 약간 몸에서 떨어지게 하고 손바닥을 곧게 펴주며 손가락은 보기 좋게 정렬시킨다"},
+      {tag:"muscle",label:"수축",text:"무릎은 펴고 배는 집어넣고 가슴은 내밀고 어깨는 뒤로 편다"}]},
+    {id:"pose_wb02",name:"Quarter Turn Right - 왼쪽 측면",criteria:[
+      {tag:"foot",label:"발",text:"몸의 왼편이 심판을 향하게 선 상태에서 상체를 약간 심판 쪽으로 돌려준다 / 왼쪽 엉덩이를 약간 올리고 왼쪽 다리의 무릎을 약간 구부린다 / 왼발을 몸의 중심선 가까이에 둔 상태에서 발가락으로 체중을 지탱하며 오른쪽 다리는 곧게 편다"},
+      {tag:"hand",label:"손",text:"오른손은 오른쪽 허리에 얹고 왼 팔은 신체 중심선보다 약간 뒤로 둔 상태에서 아래로 내린다 / 왼손은 곧게 펴고 손가락을 미적으로 가지런히 정렬시킨다"},
+      {tag:"muscle",label:"수축",text:"왼쪽 측면 라인과 둔근을 강조한다"}]},
+    {id:"pose_wb03",name:"Quarter Turn Back",criteria:[
+      {tag:"foot",label:"발",text:"한 손은 허리에 얹고 한 다리는 옆으로 살짝 뻗은 채 상체를 똑바로 세운다"},
+      {tag:"hand",label:"손",text:"다른 손은 몸을 따라 아래로 늘어뜨린 상태에서 약간 몸에서 떨어지게 하고 손은 곧게 펴주며 손가락은 보기 좋게 정렬시킨다"},
+      {tag:"muscle",label:"수축",text:"허리 아랫부분은 자연스럽게 척추전만 형태를 띠게 하며 등 위쪽은 곧게 펴고 고개는 들어준다"}]},
+    {id:"pose_wb04",name:"Quarter Turn Right - 오른쪽 측면",criteria:[
+      {tag:"foot",label:"발",text:"몸의 오른편이 심판을 향하게 선 상태에서 상체를 약간 심판 쪽으로 돌려준다 / 오른쪽 엉덩이를 약간 올리고 오른쪽 다리의 무릎을 약간 구부린다 / 오른발을 몸의 중심선 가까이에 둔 상태에서 발가락으로 체중을 지탱하며 왼쪽 다리는 곧게 편다"},
+      {tag:"hand",label:"손",text:"왼손은 왼쪽 허리에 얹고 오른 팔은 신체 중심선보다 약간 뒤로 둔 상태에서 아래로 내린다 / 오른손은 곧게 펴고 손가락을 미적으로 가지런히 정렬시킨다"},
+      {tag:"muscle",label:"수축",text:"오른쪽 측면 라인과 둔근을 강조한다"}]}
+  ]}
 };
 
 // ── 퀴즈 정답 확인 ──
@@ -1714,136 +1816,6 @@ function installApp(){
     {id:"sip_e09",name:"CPR 중단 조건",question:"Q. CPR을 중단하는 조건은 무엇인가요?",criteria:[{tag:"key",label:"모범답안",text:"현장이 위험해질 때, 환자의 의식이 돌아왔을 때, 의료진에게 인계했을 때"}]}
   ]}
 
-  ,"실전/남자보디빌딩·클래식보디빌딩/규정포즈":{color:"#e8554a",cards:[
-    {id:"pose_b01",name:"Front Double Biceps",criteria:[
-      {tag:"foot",label:"발",text:"심판을 향해 정면으로 서서 한 발을 약간 40~50cm 바깥쪽 앞에 놓는다"},
-      {tag:"hand",label:"손",text:"두 팔을 들어 어깨와 수평한 위치에서 팔꿈치를 구부린다 / 이두근과 전완근이 수축되도록 주먹을 꽉 쥐고 아래를 향하게 한다"},
-      {tag:"muscle",label:"수축",text:"머리부터 발끝까지 가능한 한 많은 전면 근육을 수축"}]},
-    {id:"pose_b02",name:"Front Lat Spread",criteria:[
-      {tag:"foot",label:"발",text:"심판을 향해 정면으로 서서 다리와 발의 안쪽 라인을 15cm까지 벌려준다"},
-      {tag:"hand",label:"손",text:"펼치거나 주먹을 쥔 손을 허리 하부 또는 복사근에 위치시켜 광배근을 펼쳐 보인다"},
-      {tag:"muscle",label:"수축",text:"머리부터 발끝까지 가능한 한 많은 전면 근육을 수축한다"}]},
-    {id:"pose_b03",name:"Side Chest",criteria:[
-      {tag:"foot",label:"발",text:"우측이나 좌측을 바라보고 선 후 심판을 향해 고개와 상체를 틀어준다 / 심판과 가까운 쪽 다리의 무릎을 구부리고 발가락으로 지탱한다"},
-      {tag:"hand",label:"손",text:"심판과 가까운 쪽 팔을 직각으로 구부린 후 손은 주먹을 쥐고 다른 한 손은 주먹을 쥔 손의 손목을 잡는다"},
-      {tag:"muscle",label:"수축",text:"배를 넣고 가슴을 살짝 들고 상완이두근을 최대한 수축한다"}]},
-    {id:"pose_b04",name:"Back Double Biceps",criteria:[
-      {tag:"foot",label:"발",text:"뒷모습이 심판을 향해 서서 한 발을 뒤로 빼서 발가락으로 지탱한다"},
-      {tag:"hand",label:"손",text:"두 팔을 들어 어깨와 수평한 위치에서 팔꿈치를 구부린다 / 주먹을 꽉 쥐고 아래를 향하게 한다"},
-      {tag:"muscle",label:"수축",text:"어깨, 상완이두근, 상완삼두근, 등 상하부, 둔근, 허벅지, 비복근 전체를 수축시킨다"}]},
-    {id:"pose_b05",name:"Back Lat Spread",criteria:[
-      {tag:"foot",label:"발",text:"뒷모습이 심판에게 보이게 서서 다리와 발의 안쪽 라인을 최대 15cm까지 벌려준다"},
-      {tag:"hand",label:"손",text:"양손을 허리 위에 올리고 광배근을 최대한 펼쳐 보인다"},
-      {tag:"muscle",label:"수축",text:"머리부터 발끝까지 가능한 한 많은 후면 전체 근육을 수축한다"}]},
-    {id:"pose_b06",name:"Side Triceps",criteria:[
-      {tag:"foot",label:"발",text:"우측이나 좌측을 바라보고 선 후 심판을 향해 고개와 상체를 틀어준다 / 심판과 가까운 쪽 다리의 무릎을 굽히고 발바닥을 바닥에 붙인다 / 심판과 먼 쪽 다리의 무릎을 굽히고 발가락으로 지탱한다"},
-      {tag:"hand",label:"손",text:"두 팔을 등 뒤에 놓고 깍지를 끼거나 앞쪽에 있는 팔의 손목을 잡는다"},
-      {tag:"muscle",label:"수축",text:"앞쪽 팔에 압력을 가하여 상완삼두근을 수축시킨다"}]},
-    {id:"pose_b07",name:"Abdominal & Thighs",criteria:[
-      {tag:"foot",label:"발",text:"심판을 향해 정면으로 서서 한쪽 발을 앞에 놓고 발가락으로 지탱한다"},
-      {tag:"hand",label:"손",text:"두 팔을 머리 뒤에 놓고 호흡을 들이마신다"},
-      {tag:"muscle",label:"수축",text:"몸통을 약간 앞쪽으로 보내며 크런칭 자세로 복부근육을 수축 / 동시에 하체 전면 근육도 수축시킨다"}]},
-    {id:"pose_mcbb01",name:"MCBB 1. Front Double Biceps",criteria:[
-      {tag:"foot",label:"발",text:"심판을 향해 정면으로 서서 한 발을 약간 40~50cm 바깥쪽 앞에 놓는다"},
-      {tag:"hand",label:"손",text:"두 팔을 들어 어깨와 수평한 위치에서 팔꿈치를 구부린다 / 주먹을 꽉 쥐고 아래를 향하게 한다"},
-      {tag:"muscle",label:"수축",text:"이두근과 전완근 수축 / 머리부터 발끝까지 전면 근육을 수축"}]},
-    {id:"pose_mcbb02",name:"MCBB 2. Front Lat Spread",criteria:[
-      {tag:"foot",label:"발",text:"심판을 향해 정면으로 서서 다리와 발의 안쪽 라인을 15cm까지 벌려준다"},
-      {tag:"hand",label:"손",text:"펼치거나 주먹을 쥔 손을 허리 하부 또는 복사근에 위치시킨다"},
-      {tag:"muscle",label:"수축",text:"광배근을 최대한 펼쳐 전면 근육을 수축한다"}]},
-    {id:"pose_mcbb03",name:"MCBB 3. Side Chest",criteria:[
-      {tag:"foot",label:"발",text:"우측이나 좌측을 바라보고 선 후 심판을 향해 고개와 상체를 틀어준다 / 심판과 가까운 쪽 다리의 무릎을 구부리고 발가락으로 지탱한다"},
-      {tag:"hand",label:"손",text:"심판과 가까운 쪽 팔을 직각으로 구부린 후 손은 주먹을 쥐고 다른 손은 그 손목을 잡는다"},
-      {tag:"muscle",label:"수축",text:"배를 넣고 가슴을 살짝 들고 상완이두근을 최대한 수축한다"}]},
-    {id:"pose_mcbb04",name:"MCBB 4. Back Double Biceps",criteria:[
-      {tag:"foot",label:"발",text:"뒷모습이 심판을 향해 서서 한 발을 뒤로 빼서 발가락으로 지탱한다"},
-      {tag:"hand",label:"손",text:"두 팔을 들어 어깨와 수평한 위치에서 팔꿈치를 구부린다 / 주먹을 꽉 쥐고 아래를 향하게 한다"},
-      {tag:"muscle",label:"수축",text:"어깨, 이두근, 삼두근, 등 상하부, 둔근, 허벅지, 비복근 전체 수축"}]},
-    {id:"pose_mcbb05",name:"MCBB 5. Back Lat Spread",criteria:[
-      {tag:"foot",label:"발",text:"뒷모습이 심판에게 보이게 서서 다리와 발의 안쪽 라인을 15cm까지 벌려준다"},
-      {tag:"hand",label:"손",text:"양손을 허리 위에 올리고 광배근을 최대한 펼쳐 보인다"},
-      {tag:"muscle",label:"수축",text:"머리부터 발끝까지 후면 전체 근육을 수축한다"}]},
-    {id:"pose_mcbb06",name:"MCBB 6. Side Triceps",criteria:[
-      {tag:"foot",label:"발",text:"우측이나 좌측을 바라보고 선 후 심판을 향해 고개와 상체를 틀어준다 / 심판과 가까운 쪽 다리 무릎을 굽히고 발바닥을 바닥에 붙인다 / 먼 쪽 다리 무릎을 굽히고 발가락으로 지탱한다"},
-      {tag:"hand",label:"손",text:"두 팔을 등 뒤에 놓고 깍지를 끼거나 앞쪽 팔의 손목을 잡는다"},
-      {tag:"muscle",label:"수축",text:"가슴을 올리고 앞쪽 팔에 압력을 가하여 상완삼두근을 수축한다"}]},
-    {id:"pose_mcbb07",name:"MCBB 7. Abdominal&Thighs",criteria:[
-      {tag:"foot",label:"발",text:"심판을 향해 정면으로 서서 한쪽 발을 앞에 놓고 발가락으로 지탱한다"},
-      {tag:"hand",label:"손",text:"두 팔을 머리 뒤에 놓고 호흡을 들이마신다"},
-      {tag:"muscle",label:"수축",text:"몸통을 약간 앞으로 보내며 크런칭 자세로 복부 근육과 하체 전면 근육을 동시에 수축한다"}]}
-  ]}
-  ,"실전/남자피지크/쿼터턴":{color:"#6c63ff",cards:[
-    {id:"pose_p01",name:"Front Position",criteria:[
-      {tag:"foot",label:"발",text:"몸에 긴장을 유지한 채 바르게 서서 한 다리는 약간 측면으로 뻗어준다"},
-      {tag:"hand",label:"손",text:"네 손가락을 몸 앞쪽으로 둔 채 한 손을 허리에 얹고 다른 손은 몸을 따라 아래로 늘어뜨린 상태에서 팔꿈치를 살짝 구부린다"},
-      {tag:"muscle",label:"수축",text:"무릎은 펴고 복근과 광배근을 살짝 수축시킨 상태에서 고개를 들어준다"}]},
-    {id:"pose_p02",name:"Quarter Turn Right (왼쪽 측면)",criteria:[
-      {tag:"foot",label:"발",text:"몸의 왼편이 심판을 향하게 선 상태에서 상체를 약간 심판 쪽으로 돌려준다 / 왼쪽 다리의 무릎을 약간 구부리고 발은 바닥에 딱 붙인다 / 오른쪽 다리의 무릎을 구부리고 뒤쪽으로 빼서 발가락으로 체중을 지탱한다"},
-      {tag:"hand",label:"손",text:"왼손은 왼쪽 허리에 얹는다 / 오른팔은 몸의 중심선보다 약간 앞에 두고 손바닥을 편 채로 손가락을 보기 좋게 정렬하고 팔꿈치는 약간 구부린다"},
-      {tag:"muscle",label:"수축",text:"측면 근육 라인을 강조하며 전체적으로 균형 잡힌 자세를 유지한다"}]},
-    {id:"pose_p03",name:"Quarter Turn Back",criteria:[
-      {tag:"foot",label:"발",text:"몸에 긴장을 유지한 채 바르게 서서 한 다리는 약간 측면으로 뻗어준다"},
-      {tag:"hand",label:"손",text:"네 손가락을 몸 앞쪽으로 둔 채 한 손을 허리에 얹고 다른 손은 몸을 따라 아래로 늘어뜨린 상태에서 팔꿈치를 살짝 구부린다"},
-      {tag:"muscle",label:"수축",text:"후면 근육 전체를 수축시키며 균형 잡힌 자세를 유지한다"}]},
-    {id:"pose_p04",name:"Quarter Turn Right (오른쪽 측면)",criteria:[
-      {tag:"foot",label:"발",text:"몸의 오른편이 심판을 향하게 선 상태에서 상체를 약간 심판 쪽으로 돌려준다 / 오른쪽 다리의 무릎을 약간 구부리고 발은 바닥에 딱 붙인다 / 왼쪽 다리의 무릎을 구부리고 뒤쪽으로 빼서 발가락으로 체중을 지탱한다"},
-      {tag:"hand",label:"손",text:"오른손은 오른쪽 허리에 얹는다 / 왼팔은 몸의 중심선보다 약간 앞에 두고 손바닥을 편 채로 손가락을 보기 좋게 정렬하고 팔꿈치는 약간 구부린다"},
-      {tag:"muscle",label:"수축",text:"측면 근육 라인을 강조하며 전체적으로 균형 잡힌 자세를 유지한다"}]}
-  ]}
-  ,"실전/여자피지크/규정포즈":{color:"#ff6b6b",cards:[
-    {id:"pose_wf01",name:"Front Double Biceps (여자피지크)",criteria:[
-      {tag:"foot",label:"발",text:"오른쪽 또는 왼쪽 다리를 바깥쪽으로 빼고 다리와 발을 일직선상에 둔 채 정면을 바라보고 선다"},
-      {tag:"hand",label:"손",text:"두 팔을 들어 어깨높이까지 올린 다음 팔꿈치를 구부린다 / 손을 편 상태에서 손가락이 하늘을 향하게 한다"},
-      {tag:"muscle",label:"수축",text:"머리부터 발끝까지 가능한 많은 근육을 수축시킬 수 있도록 노력한다"}]},
-    {id:"pose_wf02",name:"Side Chest (여자피지크)",criteria:[
-      {tag:"foot",label:"발",text:"우측이나 좌측을 바라보고 선 후 심판을 향해 고개와 상체를 틀어준다 / 심판과 먼 쪽 다리는 발바닥을 땅에 붙이고 무릎을 약간 구부린다 / 심판과 가까운 쪽 다리는 곧게 펴고 앞으로 뻗어 발가락으로 지탱한다"},
-      {tag:"hand",label:"손",text:"배를 안으로 집어넣은 상태에서 양 팔을 몸 앞쪽에 위치시키고 양 손은 깍지를 끼거나 한 손을 다른 한 손에 포개어 손바닥이 아래쪽을 향하게 한다"},
-      {tag:"muscle",label:"수축",text:"가슴근육, 삼두근, 대퇴사두근, 대퇴이두근, 비복근을 수축한다"}]},
-    {id:"pose_wf03",name:"Back Double Biceps (여자피지크)",criteria:[
-      {tag:"foot",label:"발",text:"뒷모습이 심판을 향하게 서서 한 쪽 발을 뒤로 빼서 발가락으로 지탱한다"},
-      {tag:"hand",label:"손",text:"두 팔을 어깨 높이까지 올리고 팔꿈치를 구부리며 두 손은 펴서 손가락이 하늘을 향하게 한다"},
-      {tag:"muscle",label:"수축",text:"어깨, 등 상하부, 대퇴이두근, 둔근, 비복근 후면 전체를 수축시킨다"}]},
-    {id:"pose_wf04",name:"Side Triceps (여자피지크)",criteria:[
-      {tag:"foot",label:"발",text:"우측이나 좌측을 바라보고 선 후 심판을 향해 고개와 상체를 틀어준다 / 심판과 먼 쪽 다리는 발바닥을 지면에 붙이고 무릎을 약간 구부린다 / 심판과 가까운 쪽 다리는 곧게 앞으로 뻗어 발가락으로 체중을 지탱한다"},
-      {tag:"hand",label:"손",text:"복부를 집어넣고 가슴을 내밀고 두 팔을 등 뒤에 위치한다 / 심판과 가까운 쪽 팔을 곧게 펴고 손바닥이 지면을 향하게 한다 / 앞에 있는 손목을 뒤쪽 손으로 잡고 앞쪽 팔에 압력을 가하여 상완삼두근을 수축시킨다"},
-      {tag:"muscle",label:"수축",text:"상완삼두근 및 전체적인 비율을 강조한다"}]}
-  ]}
-  ,"실전/여자피지크·보디피트니스/쿼터턴":{color:"#e8a020",cards:[
-    {id:"pose_wbf01",name:"Front Position (여자피지크·보디피트니스)",criteria:[
-      {tag:"foot",label:"발",text:"바르게 서서 발뒤꿈치를 모은 상태에서 양발을 바깥쪽 30도 각도로 벌린다 / 양 무릎을 붙인 채로 편다"},
-      {tag:"hand",label:"손",text:"두 팔을 신체 중심선을 따라 측면으로 내리고 팔꿈치를 약간 구부린다 / 손바닥이 몸통을 바라보게 한 상태에서 손을 살짝 오므린다"},
-      {tag:"muscle",label:"수축",text:"배는 안으로 집어넣고 가슴을 내밀고 어깨를 뒤로 젖힌다"}]},
-    {id:"pose_wbf02",name:"Quarter Turn Right - 왼쪽 측면",criteria:[
-      {tag:"foot",label:"발",text:"바르게 서서 양발을 바깥쪽 30도 각도로 벌린 채로 선다 / 무릎을 펴고 배는 안으로 집어넣고 가슴은 내민 채 어깨를 뒤로 젖힌다"},
-      {tag:"hand",label:"손",text:"왼 팔을 신체 중심선보다 약간 뒤로 두고 손바닥이 몸통을 바라보게 한 상태에서 손을 살짝 오므린다 / 팔꿈치를 살짝 구부린 오른 팔을 신체 전방에 위치시키고 손바닥이 몸통을 바라보게 한다"},
-      {tag:"muscle",label:"수축",text:"왼쪽 측면 근육 라인을 강조한다"}]},
-    {id:"pose_wbf03",name:"Quarter Turn Back",criteria:[
-      {tag:"foot",label:"발",text:"바르게 서서 발뒤꿈치를 모은 상태에서 양발을 바깥쪽 30도 각도로 벌린다 / 양 무릎을 붙인 채로 편다"},
-      {tag:"hand",label:"손",text:"두 팔을 신체 중심선을 따라 측면으로 내리고 팔꿈치를 약간 구부린다 / 손바닥이 몸통을 바라보게 한 상태에서 손을 살짝 오므린다"},
-      {tag:"muscle",label:"수축",text:"배는 안으로 집어넣고 가슴을 내밀고 어깨를 뒤로 젖혀 후면 근육을 강조한다"}]},
-    {id:"pose_wbf04",name:"Quarter Turn Right - 오른쪽 측면",criteria:[
-      {tag:"foot",label:"발",text:"바르게 서서 양발을 바깥쪽 30도 각도로 벌린 채로 선다 / 무릎을 펴고 배는 안으로 집어넣고 가슴은 내민 채 어깨를 뒤로 젖힌다"},
-      {tag:"hand",label:"손",text:"오른 팔을 신체 중심선보다 약간 뒤로 두고 손바닥이 몸통을 바라보게 한 상태에서 손을 살짝 오므린다 / 팔꿈치를 살짝 구부린 왼 팔을 신체 전방에 위치시키고 손바닥이 몸통을 바라보게 한다"},
-      {tag:"muscle",label:"수축",text:"오른쪽 측면 근육 라인을 강조한다"}]}
-  ]}
-  ,"실전/여자비키니/쿼터턴":{color:"#e8559a",cards:[
-    {id:"pose_wb01",name:"Front Position (여자비키니)",criteria:[
-      {tag:"foot",label:"발",text:"바르게 서서 한 손을 허리에 얹고 한 발은 약간 옆으로 뻗어준다"},
-      {tag:"hand",label:"손",text:"다른 손은 몸을 따라 아래로 늘어뜨린 상태에서 약간 몸에서 떨어지게 하고 손바닥을 곧게 펴주며 손가락은 보기 좋게 정렬시킨다"},
-      {tag:"muscle",label:"수축",text:"무릎은 펴고 배는 집어넣고 가슴은 내밀고 어깨는 뒤로 편다"}]},
-    {id:"pose_wb02",name:"Quarter Turn Right - 왼쪽 측면",criteria:[
-      {tag:"foot",label:"발",text:"몸의 왼편이 심판을 향하게 선 상태에서 상체를 약간 심판 쪽으로 돌려준다 / 왼쪽 엉덩이를 약간 올리고 왼쪽 다리의 무릎을 약간 구부린다 / 왼발을 몸의 중심선 가까이에 둔 상태에서 발가락으로 체중을 지탱하며 오른쪽 다리는 곧게 편다"},
-      {tag:"hand",label:"손",text:"오른손은 오른쪽 허리에 얹고 왼 팔은 신체 중심선보다 약간 뒤로 둔 상태에서 아래로 내린다 / 왼손은 곧게 펴고 손가락을 미적으로 가지런히 정렬시킨다"},
-      {tag:"muscle",label:"수축",text:"왼쪽 측면 라인과 둔근을 강조한다"}]},
-    {id:"pose_wb03",name:"Quarter Turn Back",criteria:[
-      {tag:"foot",label:"발",text:"한 손은 허리에 얹고 한 다리는 옆으로 살짝 뻗은 채 상체를 똑바로 세운다"},
-      {tag:"hand",label:"손",text:"다른 손은 몸을 따라 아래로 늘어뜨린 상태에서 약간 몸에서 떨어지게 하고 손은 곧게 펴주며 손가락은 보기 좋게 정렬시킨다"},
-      {tag:"muscle",label:"수축",text:"허리 아랫부분은 자연스럽게 척추전만 형태를 띠게 하며 등 위쪽은 곧게 펴고 고개는 들어준다"}]},
-    {id:"pose_wb04",name:"Quarter Turn Right - 오른쪽 측면",criteria:[
-      {tag:"foot",label:"발",text:"몸의 오른편이 심판을 향하게 선 상태에서 상체를 약간 심판 쪽으로 돌려준다 / 오른쪽 엉덩이를 약간 올리고 오른쪽 다리의 무릎을 약간 구부린다 / 오른발을 몸의 중심선 가까이에 둔 상태에서 발가락으로 체중을 지탱하며 왼쪽 다리는 곧게 편다"},
-      {tag:"hand",label:"손",text:"왼손은 왼쪽 허리에 얹고 오른 팔은 신체 중심선보다 약간 뒤로 둔 상태에서 아래로 내린다 / 오른손은 곧게 펴고 손가락을 미적으로 가지런히 정렬시킨다"},
-      {tag:"muscle",label:"수축",text:"오른쪽 측면 라인과 둔근을 강조한다"}]}
-  ]}
 }
 
 
@@ -2676,20 +2648,6 @@ if('serviceWorker' in navigator){
 }
 
 // 설치 프롬프트
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', e=>{
-  e.preventDefault();
-  deferredPrompt = e;
-  document.getElementById('install-banner').style.display='flex';
-});
-
-function installApp(){
-  if(deferredPrompt){
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(()=>{
-      deferredPrompt=null;
-      document.getElementById('install-banner').style.display='none';
-    });
   }
 }
 </script>
